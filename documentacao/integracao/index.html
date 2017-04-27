@@ -28,8 +28,9 @@
     <div class="tocify-wrapper">
       <img src="images/logo.png" />
         <div class="lang-selector">
-              <a href="#" data-language-name="xml">XML Comentado</a>
+              <a href="#" data-language-name="xml">XML</a>
               <a href="#" data-language-name="shell">cURL</a>
+			   <a href="#" data-language-name="json">Json</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Procurar">
@@ -41,7 +42,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='bem-vindo--stone-online'>Bem vindo(a) à Intermeio! <br/><span style='font-size:18px;'>Propocionando soluções inteligentes de Pagamentos.</span></h1>
+        <h1 id='bem-vindo--intermeio'>Bem vindo(a) à Intermeio! <br/><span style='font-size:18px;'>Propocionando soluções inteligentes de Pagamentos.</span></h1>
 <p>Apresentaremos aqui, tudo o que você precisa para começar a sua integração em nossa API.</p>
 
 <p><strong>INTRODUÇÃO</strong></p>
@@ -109,7 +110,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis tristique od
 <li><p>Ajuda (<strong>HELP</strong>)</p></li>
 </ol>
 <h2 id='mensagens-de-autorizao'>Mensagens de Autorização</h2><h3 id='autorizao-com-captura'>Autorização com Captura</h3>
-<p>A autorização com captura é, provavelmente, um dos casos mais comuns de integração. O cliente chega à loja, escolhe seus produtos, adiciona-os ao carrinho, finaliza o pedido e faz o pagamento. A loja, ao receber a solicitação de finalização do pedido, faz a integração com a Stone, solicita a autorização e faz a captura do valor autorizado automaticamente. É o processo normal da maioria dos ecommerces.</p>
+<p>A autorização com captura é, provavelmente, um dos casos mais comuns de integração. O cliente chega à loja, escolhe seus produtos, adiciona-os ao carrinho, finaliza o pedido e faz o pagamento. A loja, ao receber a solicitação de finalização do pedido, faz a integração com a -----, solicita a autorização e faz a captura do valor autorizado automaticamente. É o processo normal da maioria dos ecommerces.</p>
 
 <p><img alt="autorização com captura" src="images/autorizacao-e-captura.png" /></p>
 
@@ -128,21 +129,21 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis tristique od
 
 <ul>
 <li><p><strong>À vista</strong> - Consiste no pagamento do valor total da compra</p></li>
-<li><p><strong>Parcelado</strong> - é o pagamento mensal do valor da compra, dividido pelo número escolhido de parcelas. O pagamento é realizado de acordo com a data de faturamento acordadada entre o portador do cartão e o emissor, nos meses subsequentes a compra, até que o valor integral devido seja quitado. É o adquirente ( STONE ) quem controla o número máximo de parcelas desta transação. Deve-se explicitar, porém que existem dois tipos de parcelamentos e ambos possuem juros, a diferença é de quem os juros são cobrados : Do portador do cartão ou lojista.</p></li>
+<li><p><strong>Parcelado</strong> - é o pagamento mensal do valor da compra, dividido pelo número escolhido de parcelas. O pagamento é realizado de acordo com a data de faturamento acordadada entre o portador do cartão e o emissor, nos meses subsequentes a compra, até que o valor integral devido seja quitado. É o adquirente ( ----- ) quem controla o número máximo de parcelas desta transação. Deve-se explicitar, porém que existem dois tipos de parcelamentos e ambos possuem juros, a diferença é de quem os juros são cobrados : Do portador do cartão ou lojista.</p></li>
 </ul>
 
 <p><strong>Tipos de parcelamento</strong></p>
 
-<p>Durante o credenciamento com a STONE é possível optar pelas seguintes formas de parcelamento de transações:</p>
+<p>Durante o credenciamento com a ----- é possível optar pelas seguintes formas de parcelamento de transações:</p>
 
 <ul>
 <li><p><strong>Parcelado emissor</strong> ( Com juros para o portador do cartão ) - Compras realizadas com cartão de crédito, em que o emissor financia o portador do cartão, isto é, o lojista recebe o valor integral 30 dias depois da compra, mas o portador do cartão paga por ela em até 12 vezes. Para o lojista é como uma transação de crédito à vista. Os emissores cobram do portador do cartão os juros e IOF pelo financiamento.</p></li>
-<li><p><strong>Parcelado lojista</strong> ( Sem juros para o portador do cartão ) - Compras realizadas com cartão de crédito, em que a loja financia o portador do cartão. Não são cobrados do portador juros nessa transação. A Stone e o lojista recebem de forma parcelada a cada 30 dias.</p></li>
+<li><p><strong>Parcelado lojista</strong> ( Sem juros para o portador do cartão ) - Compras realizadas com cartão de crédito, em que a loja financia o portador do cartão. Não são cobrados do portador juros nessa transação. A ----- e o lojista recebem de forma parcelada a cada 30 dias.</p></li>
 </ul>
 <h3 id='post-authorize'>POST /Authorize</h3>
 <p>A autorização é o processo de troca de mensagens entre o estabelecimento e o adquirente onde é verificado se portador do cartão possui ou não saldo suficiente para a realização de um pagamento. A diferença entre a mensagem de autorização com captura automática e com captura posterior, está no elemento <code class="prettyprint">TxCaptr</code> que deve ser informado <code class="prettyprint">true</code> para Autorização com Captura, ou <code class="prettyprint">false</code> para Autorização com Captura posterior.</p>
 <h3 id='requisio-de-autorizao'>Requisição de autorização</h3>
-<p>A mensagem de <code class="prettyprint">AcceptorAuthorisationRequest</code> é enviada pelo estabelecimento para a url <a href="https://e-commerce.stone.com.br/Authorize">https://e-commerce.stone.com.br/Authorize</a> (produção) ou <a href="https://sandbox-auth-integration.stone.com.br/Authorize">https://sandbox-auth-integration.stone.com.br/Authorize</a> (homologação) para o adquirente, para checar junto ao banco que a conta associada ao cartão possui recursos para financiar o pagamento. Este controle inclui a validação dos dados do cartão e todos os dados adicionais previstos.</p>
+<p>A mensagem de <code class="prettyprint">AcceptorAuthorisationRequest</code> é enviada pelo estabelecimento para a url <a href="https://e-commerce.-----.com.br/Authorize">https://e-commerce.-----.com.br/Authorize</a> (produção) ou <a href="https://sandbox-auth-integration.-----.com.br/Authorize">https://sandbox-auth-integration.-----.com.br/Authorize</a> (homologação) para o adquirente, para checar junto ao banco que a conta associada ao cartão possui recursos para financiar o pagamento. Este controle inclui a validação dos dados do cartão e todos os dados adicionais previstos.</p>
 <pre class="highlight xml"><code><span class="nt">&lt;Document</span> <span class="na">xmlns=</span><span class="s">"urn:AcceptorAuthorisationRequestV02.1"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;AccptrAuthstnReq&gt;</span>
         <span class="c">&lt;!-- Cabeçalho da requisição --&gt;</span>
@@ -212,7 +213,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis tristique od
             <span class="c">&lt;!-- Informações da transação. --&gt;</span>
             <span class="nt">&lt;Tx&gt;</span>
                 <span class="c">&lt;!-- Identificação da transação definida pelo sistema que se
-                     comunica com o Host Stone. --&gt;</span>
+                     comunica com o Host -----. --&gt;</span>
                 <span class="nt">&lt;InitrTxId&gt;</span>123123123<span class="nt">&lt;/InitrTxId&gt;</span>
                 <span class="c">&lt;!-- Indica se os dados da transação devem ser capturados (true)
                      ou não (false) imediatamente. --&gt;</span>
@@ -422,7 +423,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis tristique od
 <td>InitiatorTransactionIdentification<code class="prettyprint">&lt;InitrTxId&gt;</code></td>
 <td>0  à 1</td>
 <td>Text</td>
-<td>Identificação da transação definida pelo sistema que se comunica com o Host Stone.</td>
+<td>Identificação da transação definida pelo sistema que se comunica com o Host -----.</td>
 <td>Não</td>
 </tr>
 <tr>
@@ -516,7 +517,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis tristique od
             <span class="nt">&lt;PrtcolVrsn&gt;</span>2.0<span class="nt">&lt;/PrtcolVrsn&gt;</span>
             <span class="c">&lt;!-- Dados para rastreamento da mensagem. --&gt;</span>
             <span class="nt">&lt;Tracblt&gt;</span>
-                <span class="c">&lt;!-- Data e hora da saída da mensagem no Host Stone. --&gt;</span>
+                <span class="c">&lt;!-- Data e hora da saída da mensagem no Host -----. --&gt;</span>
                 <span class="nt">&lt;TracDtTmOut&gt;</span>2014-03-12T18:10:58<span class="nt">&lt;/TracDtTmOut&gt;</span>
             <span class="nt">&lt;/Tracblt&gt;</span>
         <span class="nt">&lt;/Hdr&gt;</span>
@@ -547,7 +548,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis tristique od
                          Este campo será ecoado pelo adquirente. --&gt;</span>
                     <span class="nt">&lt;TxRef&gt;</span>06064f516a50483da7f189243c95ccca<span class="nt">&lt;/TxRef&gt;</span>
                 <span class="nt">&lt;/TxId&gt;</span>
-                <span class="c">&lt;!-- Identificação da transação definida pela Stone. --&gt;</span>
+                <span class="c">&lt;!-- Identificação da transação definida pela -----. --&gt;</span>
                 <span class="nt">&lt;RcptTxId&gt;</span>00000034071000000215353<span class="nt">&lt;/RcptTxId&gt;</span>
                 <span class="c">&lt;!-- Detalhes da transação. --&gt;</span>
                 <span class="nt">&lt;TxDtls&gt;</span>
@@ -626,7 +627,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis tristique od
 <td>TraceDateTimeOut<code class="prettyprint">&lt;TracDtTmOut&gt;</code></td>
 <td>1</td>
 <td>DateTime</td>
-<td>Data e hora da saída da mensagem no Host Stone.</td>
+<td>Data e hora da saída da mensagem no Host -----.</td>
 <td>Sim</td>
 </tr>
 <tr>
@@ -703,7 +704,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis tristique od
 <td>RecipientTransactionIdentification<code class="prettyprint">&lt;RcptTxId&gt;</code></td>
 <td>1</td>
 <td>Text</td>
-<td>Identificação da transação definida pela Stone.</td>
+<td>Identificação da transação definida pela -----.</td>
 <td>Sim</td>
 </tr>
 <tr>
@@ -787,7 +788,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis tristique od
 <h2 id='captura-posterior'>Captura posterior</h2><h3 id='autorizao-com-captura-posterior'>Autorização com captura posterior</h3>
 <p><aside class="notice">Uma mensagem específica para a captura deve ser enviada no momento oportuno</aside></p>
 
-<p>Ocorre quando o estabelecimento decide autorizar a transção e capturá-la de forma manual posteriormente. Um exemplo recorrente de captura posterior ocorre no caso de reservas em hotéis, em que o cliente acessa o site, escolhe o hotel, quarto, total de diárias e faz a reserva. O site do hotel, ao receber a solicitação de reserva, solicita à Stone que autorize o valor da reserva, mas não faz a captura até que o cliente faça o checkin no hotel.</p>
+<p>Ocorre quando o estabelecimento decide autorizar a transção e capturá-la de forma manual posteriormente. Um exemplo recorrente de captura posterior ocorre no caso de reservas em hotéis, em que o cliente acessa o site, escolhe o hotel, quarto, total de diárias e faz a reserva. O site do hotel, ao receber a solicitação de reserva, solicita à ----- que autorize o valor da reserva, mas não faz a captura até que o cliente faça o checkin no hotel.</p>
 
 <p><img alt="autorização com captura posterior" src="images/autorizacao-com-captura-posterior.png" /></p>
 
@@ -807,7 +808,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis tristique od
 <h3 id='quando-enviar-'>Quando enviar ?</h3>
 <p>A captura posterior deve ser efetuada quando o cliente realiza uma compra com o cartão ( mesmo caso da autorização ), porém o lojista deseja que a captura não ocorra automáticamente e prefere efetuar a captura manualmente em alguma data futura (como é o caso de reservas em hotéis explicitado acima).</p>
 <h3 id='post-completionadvice'>POST /CompletionAdvice</h3><h3 id='xml-de-requisio-de-captura-comentado'>XML de requisição de Captura comentado</h3>
-<p>Caso você deseje criar uma transação com captura posterior o campo deve <code class="prettyprint">TxCaptr</code> deve ser preenchido como <code class="prettyprint">false</code> na requisição de Autorização. Então, mensagem <code class="prettyprint">AcceptorCompletionAdvice</code> deve ser enviada pelo estabelecimento para confirmar uma transação previamente autorizada. Esta mensagem também é utilizada como um pedido de desfazimento de transações. A url da requisição é <a href="https://e-commerce.stone.com.br/CompletionAdvice">https://e-commerce.stone.com.br/CompletionAdvice</a> (produção) ou <a href="https://sandox-auth-integration.stone.com.br/CompletionAdvice">https://sandox-auth-integration.stone.com.br/CompletionAdvice</a> (homologação).</p>
+<p>Caso você deseje criar uma transação com captura posterior o campo deve <code class="prettyprint">TxCaptr</code> deve ser preenchido como <code class="prettyprint">false</code> na requisição de Autorização. Então, mensagem <code class="prettyprint">AcceptorCompletionAdvice</code> deve ser enviada pelo estabelecimento para confirmar uma transação previamente autorizada. Esta mensagem também é utilizada como um pedido de desfazimento de transações. A url da requisição é <a href="https://e-commerce.-----.com.br/CompletionAdvice">https://e-commerce.-----.com.br/CompletionAdvice</a> (produção) ou <a href="https://sandox-auth-integration.-----.com.br/CompletionAdvice">https://sandox-auth-integration.-----.com.br/CompletionAdvice</a> (homologação).</p>
 <pre class="highlight xml"><code><span class="nt">&lt;Document</span> <span class="na">xmlns=</span><span class="s">"urn:AcceptorCompletionAdviceV02.1"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;AccptrCmpltnAdvc&gt;</span>
         <span class="c">&lt;!-- Cabeçalho da mensagem. --&gt;</span>
@@ -832,7 +833,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis tristique od
             <span class="c">&lt;!-- Dados da transação. --&gt;</span>
             <span class="nt">&lt;Tx&gt;</span>
                 <span class="c">&lt;!-- Identificação da transação definida pelo sistema que se comunica com
-                     o Host Stone. --&gt;</span>
+                     o Host -----. --&gt;</span>
                 <span class="nt">&lt;InitrTxId&gt;</span>123123123<span class="nt">&lt;/InitrTxId&gt;</span>
                 <span class="c">&lt;!-- Dados de identificação da transação atribuída pelo POI. --&gt;</span>
                 <span class="nt">&lt;TxId&gt;</span>
@@ -1142,12 +1143,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis tristique od
 
 <ul>
 <li><p>Cancelamento :
-É o pedido de desfazimento de uma transação que ocorre quando o valor da transação ainda não foi liquidado pela Stone para o lojista. Nesse caso o valor é recebido pelo portador do cartão em até 5 dias.</p></li>
+É o pedido de desfazimento de uma transação que ocorre quando o valor da transação ainda não foi liquidado pela ----- para o lojista. Nesse caso o valor é recebido pelo portador do cartão em até 5 dias.</p></li>
 <li><p>Estorno :
-É o pedido de desfazimento de uma transação que ocorre quando o valor da transação já foi liquidado pela Stone para o lojista. Nesse caso o valor é recebido pelo portador do cartão na próxima fatura.</p></li>
+É o pedido de desfazimento de uma transação que ocorre quando o valor da transação já foi liquidado pela ----- para o lojista. Nesse caso o valor é recebido pelo portador do cartão na próxima fatura.</p></li>
 </ul>
 <h3 id='quando-cada-um-ocorre'>Quando cada um ocorre</h3>
-<p>Como a Stone é uma adquirente, ela apenas liquida saldos dos seus clientes. Ao realizar transações o cliente gera recebíveis e, caso o total de recebíveis seja superior aos valores devidos por ele à Stone (por exemplo valor do aluguel de maquininhas e Pinpads), seu saldo será positivo. O momento em que os recebíveis do cliente são enviados para a conta dele é chamado de liquidação.</p>
+<p>Como a ----- é uma adquirente, ela apenas liquida saldos dos seus clientes. Ao realizar transações o cliente gera recebíveis e, caso o total de recebíveis seja superior aos valores devidos por ele à ----- (por exemplo valor do aluguel de maquininhas e Pinpads), seu saldo será positivo. O momento em que os recebíveis do cliente são enviados para a conta dele é chamado de liquidação.</p>
 
 <ul>
 <li><p>Cancelamento :
@@ -1179,7 +1180,7 @@ Vendas <strong>parcialmente</strong> desfeitas <strong>após</strong> a liquida�
 <h3 id='quando-enviar-'>Quando enviar ?</h3>
 <p>Quando um cliente desiste de uma reserva ( no caso de hoteís e serviços correlatos ) ou desiste de um produto comprado ( e-commerces em geral ) o cliente pode entrar em contato direto com o lojista e solicitar o cancelamento/estorno da reserva/compra ou pode falar diretamente com o banco emissor de seu cartão e solicitar um chargeback ( ou contestação ) por diversos motivos. Nesses casos deve se enviar uma requisição de cancelamento conforme descrito abaixo.</p>
 <h3 id='xml-de-requisio-de-cancelamento-comentado'>XML de requisição de Cancelamento comentado</h3>
-<p>A mensagem <code class="prettyprint">AcceptorCancellationRequest</code> é utilizada para realizar um pedido de cancelamento de uma transação autorizada e deve ser enviada para a url <a href="https://e-commerce.stone.com.br/Cancellation">https://e-commerce.stone.com.br/Cancellation</a> ( produção ) ou <a href="https://sandbox-auth-integration.stone.com.br/Cancellation">https://sandbox-auth-integration.stone.com.br/Cancellation</a> (homologação). </p>
+<p>A mensagem <code class="prettyprint">AcceptorCancellationRequest</code> é utilizada para realizar um pedido de cancelamento de uma transação autorizada e deve ser enviada para a url <a href="https://e-commerce.-----.com.br/Cancellation">https://e-commerce.-----.com.br/Cancellation</a> ( produção ) ou <a href="https://sandbox-auth-integration.-----.com.br/Cancellation">https://sandbox-auth-integration.-----.com.br/Cancellation</a> (homologação). </p>
 <pre class="highlight xml"><code><span class="nt">&lt;Document</span> <span class="na">xmlns=</span><span class="s">"urn:AcceptorCancellationRequestV02.1"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;AccptrCxlReq&gt;</span>
         <span class="c">&lt;!-- Cabeçalho da mensagem --&gt;</span>
@@ -1233,7 +1234,7 @@ Vendas <strong>parcialmente</strong> desfeitas <strong>após</strong> a liquida�
                 <span class="c">&lt;!-- Dados da transação original --&gt;</span>
                 <span class="nt">&lt;OrgnlTx&gt;</span>
                     <span class="c">&lt;!-- Identificação da transação definida pelo sistema que se comunica
-                         com o Host Stone. --&gt;</span>
+                         com o Host -----. --&gt;</span>
                     <span class="nt">&lt;InitrTxId&gt;</span>123123123<span class="nt">&lt;/InitrTxId&gt;</span>
                     <span class="c">&lt;!-- Identificação da transação definida pelo adquirente. --&gt;</span>
                     <span class="nt">&lt;RcptTxId&gt;</span>00000034071000000215346<span class="nt">&lt;/RcptTxId&gt;</span>
@@ -1341,7 +1342,7 @@ Vendas <strong>parcialmente</strong> desfeitas <strong>após</strong> a liquida�
 <td>PrintLineWidth<code class="prettyprint">&lt;PrtLineWidth&gt;</code></td>
 <td>0  à 1</td>
 <td>Text</td>
-<td>Número máximo de colunas de cada linha a ser impressa no cupom. A quantidade mínima de colunas é de 38. Se o POI enviar menos do que 38, o Host Stone não irá retornar os dados do recibo.</td>
+<td>Número máximo de colunas de cada linha a ser impressa no cupom. A quantidade mínima de colunas é de 38. Se o POI enviar menos do que 38, o Host ----- não irá retornar os dados do recibo.</td>
 <td>Não</td>
 </tr>
 <tr>
@@ -1411,7 +1412,7 @@ Vendas <strong>parcialmente</strong> desfeitas <strong>após</strong> a liquida�
 <td>InitiatorTransactionIdentification<code class="prettyprint">&lt;InitrTxId&gt;</code></td>
 <td>0  à 1</td>
 <td>Text</td>
-<td>Identificação da transação definida pelo sistema que se comunica com o Host Stone.</td>
+<td>Identificação da transação definida pelo sistema que se comunica com o Host -----.</td>
 <td>Sim</td>
 </tr>
 <tr>
@@ -1678,7 +1679,7 @@ Vendas <strong>parcialmente</strong> desfeitas <strong>após</strong> a liquida�
 <li><p><strong>Erros no processamento :</strong> Quando ocorre algum tipo de falha técnica que impede a captura correta da transação, nesses caso o banco pode solicitar chargeback.</p></li>
 </ul>
 
-<p>Infelizmente, o consumidor pode solicitar um chargeback de má fé, por exemplo, ele faz a compra pessoalmente e vê que mercadoria está como deveria ou mesmo após fazer a compra online e receber a mercadoria corretamente ele entra em contato com o banco emissor e solicita o chargeback. Nesses casos reapresentação que seria na realidade a contestação de um chargeback pode ser realizada com a ajuda da STONE. Para isso você deve enviar documentos que comprovem a efetividade da compra como :</p>
+<p>Infelizmente, o consumidor pode solicitar um chargeback de má fé, por exemplo, ele faz a compra pessoalmente e vê que mercadoria está como deveria ou mesmo após fazer a compra online e receber a mercadoria corretamente ele entra em contato com o banco emissor e solicita o chargeback. Nesses casos reapresentação que seria na realidade a contestação de um chargeback pode ser realizada com a ajuda da -----. Para isso você deve enviar documentos que comprovem a efetividade da compra como :</p>
 
 <ul>
 <li><p>Cópia legível do comprovante de venda.</p></li>
@@ -1687,7 +1688,7 @@ Vendas <strong>parcialmente</strong> desfeitas <strong>após</strong> a liquida�
 <li><p>Qualquer outra documentação que comprove que a venda é legítima.</p></li>
 </ul>
 
-<p>Nesses casos você deve entrar em contato com o relacionamento com o cliente STONE no telefone <strong>3004-9680</strong> ou no email <a href="mailto:%20meajuda@stone.com.br">meajuda@stone.com.br</a> para receber um atendimento pessoal e cheio de disposição da nossa equipe e enviá-los os documentos necessários.</p>
+<p>Nesses casos você deve entrar em contato com o relacionamento com o cliente ----- no telefone <strong>3004-9680</strong> ou no email <a href="mailto:%20meajuda@-----.com.br">meajuda@-----.com.br</a> para receber um atendimento pessoal e cheio de disposição da nossa equipe e enviá-los os documentos necessários.</p>
 <h1 id='cdigos-de-retorno'>Códigos de retorno</h1>
 <p>Os códigos de retorno listados abaixo fazem referência aos possíveis retornos do campo <strong>ResponseReason</strong> <code class="prettyprint">&lt;RspnRsn&gt;</code></p>
 <h2 id='transaes-aprovadas'>Transações APROVADAS</h2>
@@ -1974,6 +1975,7 @@ Vendas <strong>parcialmente</strong> desfeitas <strong>após</strong> a liquida�
           <div class="lang-selector">
                 <a href="#" data-language-name="xml">XML</a>
                 <a href="#" data-language-name="shell">cURL</a>
+				 <a href="#" data-language-name="json">Json</a>
           </div>
       </div>
     </div>
